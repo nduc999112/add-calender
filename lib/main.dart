@@ -263,7 +263,10 @@ class _HomeState extends State<Home> {
                           firstDate: DateTime(2000),
                           lastDate: DateTime(2025),
                         ).then((value) {
-                          dateTimeEnd = value!;
+                         setState(() {
+                           dateTimeEnd = value!;
+                           print(value);
+                         });
                         });
                       },
                       child: Container(
