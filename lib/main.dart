@@ -13,17 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
           primarySwatch: Colors.blue,
         ),
         home: Home());
@@ -32,8 +24,6 @@ class MyApp extends StatelessWidget {
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
-  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
-      GlobalKey<ScaffoldMessengerState>();
 
   @override
   _HomeState createState() => _HomeState();
@@ -113,9 +103,9 @@ class _HomeState extends State<Home> {
             ),
             TextField(
               onChanged: (value) {
-
-                  titlectl.text = value;
-
+                titlectl.text = value;
+                titlectl.selection = TextSelection.fromPosition(
+                    TextPosition(offset: titlectl.text.length));
               },
               controller: titlectl,
               decoration: InputDecoration(
@@ -128,9 +118,9 @@ class _HomeState extends State<Home> {
             ),
             TextField(
               onChanged: (value) {
-                setState(() {
                   desctrl.text = value;
-                });
+                  desctrl.selection = TextSelection.fromPosition(
+                      TextPosition(offset: desctrl.text.length));
               },
               controller: desctrl,
               decoration: InputDecoration(
@@ -143,9 +133,9 @@ class _HomeState extends State<Home> {
             ),
             TextField(
               onChanged: (value) {
-                setState(() {
                   locatrl.text = value;
-                });
+                  locatrl.selection = TextSelection.fromPosition(
+                      TextPosition(offset: locatrl.text.length));
               },
               controller: locatrl,
               decoration: InputDecoration(
@@ -158,9 +148,9 @@ class _HomeState extends State<Home> {
             ),
             TextField(
               onChanged: (value) {
-                setState(() {
                   invitectrl.text = value;
-                });
+                  invitectrl.selection = TextSelection.fromPosition(
+                      TextPosition(offset: invitectrl.text.length));
               },
               controller: invitectrl,
               decoration: InputDecoration(
